@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-movie-search',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./movie-search.component.scss']
 })
 export class MovieSearchComponent {
+  
+  searchValue: string = '';
+
+  constructor(private dataService:DataService){
+  }
+  sendMovieTitle(){
+    this.dataService.movieName=this.searchValue;
+    this.dataService.updateData();
+    
+  }
 
 }

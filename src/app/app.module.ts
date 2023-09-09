@@ -9,6 +9,8 @@ import { MovieFinderComponent } from './components/movie-finder/movie-finder.com
 import { MovieSearchComponent } from './components/movie-search/movie-search.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
