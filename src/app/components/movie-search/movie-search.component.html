@@ -1,5 +1,5 @@
 <div class="movie-search-container">
-    <input type="text" placeholder="Search for movies" class="custom-input" [(ngModel)]="searchValue">
+    <input type="text" placeholder="Search for movies" class="custom-input" [(ngModel)]="searchValue" (keydown.enter)="sendMovieTitle()">
     <span><img src="../../../assets/search.png" class="search-icon" (click)="sendMovieTitle()"/></span>
   </div>
   
