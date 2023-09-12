@@ -3,7 +3,7 @@
     <ul class="nav-list">
       <li><img src="../../../assets/logo.png" class="logo" alt="moviebox" /></li>
       <li class="nav-item"><a routerLink="/">Home</a></li>
-      <li class="nav-item"><a routerLink="/movie">Movie</a></li>
+      <li class="nav-item"><a routerLink="/movie" *ngIf="hasResponse">Movie</a></li>
       <li class="nav-last-item"><a routerLink="/info">Info</a></li>
      
     </ul>

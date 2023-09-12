@@ -1,0 +1,46 @@
+<div class="movie-display-container">
+  <img
+    class="movie-display-background"
+    src="../../../assets/movie-background.jpg"
+    alt="moviebox"
+  />
+  <div class="movie-display" *ngIf="title">
+    <img
+      [src]="posterImage"
+      alt="movie image"
+      class="card-image"
+      *ngIf="title"
+    />
+    <div class="card-body">
+      <h1 class="card-title">{{ title }}</h1>
+      <span
+        ><h2 class="card-title-imdb" *ngIf="imdb">
+          {{ imdb }}/10 &nbsp;<img
+            src="../../../assets/star.png"
+            class="star"
+          /></h2
+      ></span>
+      <p class="card-description" *ngIf="imdbVotes">{{ imdbVotes }} votes</p>
+      <div class="card-rating">{{ runTime }}&nbsp; {{ released }}</div>
+      <p class="card-description">{{ genre }}</p>
+      <div class="card-rating">{{ language }}</div>
+      <br />
+      <p class="card-description">{{ plot }}</p>
+      <br />
+      <p class="card-description" *ngIf="direction">
+        <b>Directed by </b>&nbsp;{{ direction }}
+      </p>
+      <p class="card-description" *ngIf="actors">
+        <b>Cast </b> &nbsp;{{ actors }}
+      </p>
+      <p class="card-description" *ngIf="boxOffice">
+        <b>Box office </b> &nbsp;{{ boxOffice }}
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="looking-card" *ngIf="!hasResponse">
+      <img src="../../../assets/looking.jpg" alt="looking image" class="looking-image">
+    </div>
+   -->

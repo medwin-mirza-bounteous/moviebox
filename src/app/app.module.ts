@@ -11,6 +11,8 @@ import { MovieCardComponent } from './components/movie-card/movie-card.component
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MovieDetailsPageComponent } from './pages/movie-details-page/movie-details-page.component';
+import { MovieDisplayComponent } from './components/movie-display/movie-display.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { FormsModule } from '@angular/forms';
     MovieFinderComponent,
     MovieSearchComponent,
     MovieCardComponent,
-    HomePageComponent
+    HomePageComponent,
+    MovieDetailsPageComponent,
+    MovieDisplayComponent
   ],
   imports: [
     BrowserModule,

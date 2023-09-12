@@ -1,11 +1,11 @@
 
 <div class="movie-card-container">
-  <div class="movie-card" *ngIf="hasResponse">
+  <div class="movie-card" *ngIf="hasResponse" (click)="redirectToAnotherPage()">
     <img [src]="posterImage" alt="movie image" class="card-image">
     <div class="card-body">
-      <h2 class="card-title">{{title}}</h2>
+      <h2 class="card-title" (click)="redirectToAnotherPage()">{{title}}</h2>
       <p class="card-description">{{actors}}</p>
-      <div class="card-rating">{{imdb}}</div>
+      <span class="card-rating">{{imdb}} &nbsp;<img src="../../../assets/star.png" class="star"/></span>
     </div>
   </div>
 </div>
@@ -13,5 +13,7 @@
   <div class="looking-card" *ngIf="!hasResponse">
     <img src="../../../assets/looking.jpg" alt="looking image" class="looking-image">
   </div>
+
+  <!-- <div class="card-title" *ngIf="hasNoMovies">No movies found</div> -->
 
   
