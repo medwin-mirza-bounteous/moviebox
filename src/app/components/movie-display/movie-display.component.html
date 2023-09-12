@@ -4,43 +4,43 @@
     src="../../../assets/movie-background.jpg"
     alt="moviebox"
   />
-  <div class="movie-display" *ngIf="title">
+  <div class="movie-display-card" *ngIf="title">
     <img
       [src]="posterImage"
       alt="movie image"
-      class="card-image"
+      class="movie-display-card-image"
       *ngIf="title"
     />
-    <div class="card-body">
-      <h1 class="card-title">{{ title }}</h1>
+    <div class="movie-display-card-body">
+      <h1 class="movie-display-card-title">{{ title }}</h1>
       <span
-        ><h2 class="card-title-imdb" *ngIf="imdb">
+        ><h2 class="movie-display-card-title-imdb" *ngIf="imdb">
+          <div class="movie-display-card-rating">IMDb</div>
           {{ imdb }}/10 &nbsp;<img
             src="../../../assets/star.png"
-            class="star"
+            class="movie-display-card-star"
           /></h2
       ></span>
-      <p class="card-description" *ngIf="imdbVotes">{{ imdbVotes }} votes</p>
-      <div class="card-rating">{{ runTime }}&nbsp; {{ released }}</div>
-      <p class="card-description">{{ genre }}</p>
-      <div class="card-rating">{{ language }}</div>
+      <p class="movie-display-card-description" *ngIf="imdbVotes">
+        {{ imdbVotes }} votes
+      </p>
+      <div class="movie-display-card-rating">
+        {{ runTime }}&nbsp; {{ released }}
+      </div>
+      <p class="movie-display-card-description">{{ genre }}</p>
+      <div class="movie-display-card-rating">{{ language }}</div>
       <br />
-      <p class="card-description">{{ plot }}</p>
+      <p class="movie-display-card-description">{{ plot }}</p>
       <br />
-      <p class="card-description" *ngIf="direction">
+      <p class="movie-display-card-description" *ngIf="direction">
         <b>Directed by </b>&nbsp;{{ direction }}
       </p>
-      <p class="card-description" *ngIf="actors">
+      <p class="movie-display-card-description" *ngIf="actors">
         <b>Cast </b> &nbsp;{{ actors }}
       </p>
-      <p class="card-description" *ngIf="boxOffice">
+      <p class="movie-display-card-description" *ngIf="boxOffice">
         <b>Box office </b> &nbsp;{{ boxOffice }}
       </p>
     </div>
   </div>
 </div>
-
-<!-- <div class="looking-card" *ngIf="!hasResponse">
-      <img src="../../../assets/looking.jpg" alt="looking image" class="looking-image">
-    </div>
-   -->

@@ -1,19 +1,21 @@
 
-<div class="movie-card-container">
+<div class="movie-card-container" >
   <div class="movie-card" *ngIf="hasResponse" (click)="redirectToAnotherPage()">
-    <img [src]="posterImage" alt="movie image" class="card-image">
-    <div class="card-body">
-      <h2 class="card-title" (click)="redirectToAnotherPage()">{{title}}</h2>
-      <p class="card-description">{{actors}}</p>
-      <span class="card-rating">{{imdb}} &nbsp;<img src="../../../assets/star.png" class="star"/></span>
+    <img [src]="posterImage" alt="movie image" class="movie-card-image">
+    <div class="movie-card-body">
+      <h2 class="movie-card-title" (click)="redirectToAnotherPage()">{{title}}</h2>
+      <p class="movie-card-description">{{actors}}</p>
+      <span class="movie-card-rating">{{imdb}} &nbsp;<img src="../../../assets/star.png" class="movie-card-rating-star"/></span>
     </div>
   </div>
 </div>
 
-  <div class="looking-card" *ngIf="!hasResponse">
-    <img src="../../../assets/looking.jpg" alt="looking image" class="looking-image">
+  <div class="looking-card" *ngIf="!hasResponse && !data">
+    <img src="../../../assets/looking.jpg" alt="looking image" class="looking-card-image">
   </div>
 
-  <!-- <div class="card-title" *ngIf="hasNoMovies">No movies found</div> -->
+ <div class="error-card" *ngIf="!hasResponse && data.Response=='False'">
+  <div class="error-card-info">No movies found</div>
+</div>
 
   

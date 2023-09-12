@@ -1,69 +1,61 @@
-/* Style the navbar */
 .navbar {
-  background-color: white; /* White background */
-  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1); /* Light drop shadow */
-  height:fit-content;
+  background-color: white;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+  height: fit-content;
 }
 
-/* Style the container within the navbar (optional) */
 .container {
-  padding: 5px; /* Add padding for spacing */
+  padding: 5px;
 }
 
-/* Style the navigation list */
-.nav-list {
+.nav {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex; /* Display list items horizontally */
-  align-items: center; /* Center items vertically within the navbar */
-}
+  display: flex;
+  align-items: center;
 
-/* Style the list items */
-.nav-item {
-  margin-right: 50px; /* Add spacing between items (adjust as needed) */
-  font-family: 'new-hero', 'Helvetica Neue', Arial, sans-serif;
-  color:#535353;
-}
+  &-item {
+    margin-right: 50px;
+    font-family: "new-hero", "Helvetica Neue", Arial, sans-serif;
+    color: #535353;
 
-/* Style the end list items */
-.nav-last-item {
-  margin-left: auto; /* Push the element to the right */
-  padding-right: 30px;
-  font-family: 'new-hero', 'Helvetica Neue', Arial, sans-serif;
-  color:#535353;
-}
+    a {
+      text-decoration: none;
+      color: #535353;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+  }
 
-.nav-item a {
-  text-decoration: none;
-  color: #535353; /* Dark gray font color */
-  font-weight: 500;
-  transition: color 0.3s; /* Add a smooth color transition on hover */
-}
+  &-last-item {
+    margin-left: auto;
+    padding-right: 30px;
+    font-family: "new-hero", "Helvetica Neue", Arial, sans-serif;
+    color: #535353;
 
-/* Style the anchor links */
-.nav-last-item a {
-  text-decoration: none;
-  color: #535353; /* Dark gray font color */
-  font-weight: 500;
-  transition: color 0.3s; /* Add a smooth color transition on hover */
-}
+    a {
+      text-decoration: none;
+      color: #535353;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+  }
 
-/* Change link color on hover */
-.nav-item a:hover {
-  text-decoration: underline;
-}
+  &-item a:hover {
+    text-decoration: underline;
+  }
 
-.nav-last-item a:hover {
-  text-decoration: underline;
-}
+  &-last-item a:hover {
+    text-decoration: underline;
+  }
 
-/* Style the logo (optional) */
-.logo {
-  width: 170px; /* Set the logo width (adjust as needed) */
-  height: auto; /* Maintain aspect ratio */
-  margin-right: 50px; /* Add spacing between logo and items (adjust as needed) */
-  margin-left: 30px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  &-logo {
+    width: 170px;
+    height: auto;
+    margin-right: 50px;
+    margin-left: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
 }

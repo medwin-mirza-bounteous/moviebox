@@ -1,15 +1,14 @@
 .footer {
-    background-color: #343434;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-  }
-  
-  .footer-content {
+  background-color: #343434;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+
+  &-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-left: 20px;
     font-family: "new-hero", "Helvetica Neue", Arial, sans-serif;
   }
-  
+}
