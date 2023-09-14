@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MovieCardComponent } from './movie-card.component';
+import { GlobalAppModuleImports, GlobalAppModuleProviders } from 'src/app/global-providers.mock';
+
+
+
 
 describe('MovieCardComponent', () => {
   let component: MovieCardComponent;
@@ -8,7 +12,9 @@ describe('MovieCardComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MovieCardComponent]
+      declarations: [MovieCardComponent],
+      imports: GlobalAppModuleImports,
+      providers:GlobalAppModuleProviders
     });
     fixture = TestBed.createComponent(MovieCardComponent);
     component = fixture.componentInstance;

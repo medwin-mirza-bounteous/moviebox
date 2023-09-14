@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { DataService } from 'src/app/data.service';
+import { selectMyData } from 'src/app/state/selectors/data.selectors';
 
 @Component({
   selector: 'app-navbar',
@@ -10,10 +12,10 @@ export class NavbarComponent {
   data: any;
   hasResponse: boolean = false;
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService,private store: Store) {}
 
   ngOnInit(): void {
-    this.dataService.data$.subscribe((newData) => {
+    this.store.select(selectMyData).subscribe((newData) => {
       this.data = newData;
 
       if (this.data.Response == 'False') {

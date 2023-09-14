@@ -29,7 +29,7 @@ import { myDataReducer } from './state/reducers/data.reducer';
     MovieDetailsPageComponent,
     MovieDisplayComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, StoreModule.forRoot({ myData: myDataReducer }),],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, StoreModule.forRoot({ myData: myDataReducer })],
   providers: [],
   bootstrap: [AppComponent],
 })
