@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MovieDetailsPageComponent } from './movie-details-page.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('MovieDetailsPageComponent', () => {
   let component: MovieDetailsPageComponent;
@@ -8,7 +9,8 @@ describe('MovieDetailsPageComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MovieDetailsPageComponent]
+      declarations: [MovieDetailsPageComponent],
+      schemas :[CUSTOM_ELEMENTS_SCHEMA],
     });
     fixture = TestBed.createComponent(MovieDetailsPageComponent);
     component = fixture.componentInstance;

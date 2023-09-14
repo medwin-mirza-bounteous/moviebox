@@ -1,11 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { DataService } from 'src/app/data.service';
 import { selectMyData } from 'src/app/state/selectors/data.selectors';
-
-
-
 
 @Component({
   selector: 'app-movie-card',
@@ -13,10 +10,7 @@ import { selectMyData } from 'src/app/state/selectors/data.selectors';
   styleUrls: ['./movie-card.component.scss'],
 })
 export class MovieCardComponent {
-
-  
-
-  data: any;
+  data: any = { Response: 'hi' };
   title: string = '';
   actors: string = '';
   imdb: string = '';
@@ -26,10 +20,8 @@ export class MovieCardComponent {
   constructor(
     private dataService: DataService,
     private router: Router,
-    private store: Store
+    private store: Store,
   ) {}
-
-
 
   ngOnInit(): void {
     this.store.select(selectMyData).subscribe((newData) => {
@@ -38,7 +30,7 @@ export class MovieCardComponent {
       this.actors = this.data.Actors;
       this.imdb = this.data.imdbRating;
       this.posterImage = this.data.Poster;
-      if (this.data.Response == 'True') {
+      if (this.data?.Response == 'True') {
         this.hasResponse = true;
       } else {
         this.hasResponse = false;

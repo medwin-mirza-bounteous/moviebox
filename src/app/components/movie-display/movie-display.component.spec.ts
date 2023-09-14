@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideMockStore } from '@ngrx/store/testing';
 import { MovieDisplayComponent } from './movie-display.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('MovieDisplayComponent', () => {
   let component: MovieDisplayComponent;
@@ -8,7 +9,10 @@ describe('MovieDisplayComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MovieDisplayComponent]
+      declarations: [MovieDisplayComponent],
+      imports:[HttpClientTestingModule],
+      providers:[provideMockStore({})]
+      
     });
     fixture = TestBed.createComponent(MovieDisplayComponent);
     component = fixture.componentInstance;
