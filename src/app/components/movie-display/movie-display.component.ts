@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { DataService } from 'src/app/data.service';
+import { selectMyData } from 'src/app/state/selectors/data.selectors';
 
 @Component({
   selector: 'app-movie-display',
@@ -22,10 +24,10 @@ export class MovieDisplayComponent {
   genre: string = '';
   runTime: string = '';
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService,private store :Store) {}
 
   ngOnInit(): void {
-    this.dataService.data$.subscribe((newData) => {
+    this.store.select(selectMyData).subscribe((newData) => {
       this.data = newData;
       this.posterImage = this.data.Poster;
       this.title = this.data.Title;
@@ -40,7 +42,7 @@ export class MovieDisplayComponent {
       this.actors = this.data.Actors;
       this.boxOffice = this.data.BoxOffice;
 
-      // This callback will be called whenever the data in the service changes.
+      // This callback will be called whenever the data in the store changes.
     });
   }
 }

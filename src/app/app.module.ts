@@ -12,6 +12,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MovieDetailsPageComponent } from './pages/movie-details-page/movie-details-page.component';
 import { MovieDisplayComponent } from './components/movie-display/movie-display.component';
+import { StoreModule } from '@ngrx/store';
+import { myDataReducer } from './state/reducers/data.reducer';
+
+
 
 @NgModule({
   declarations: [
@@ -23,9 +27,9 @@ import { MovieDisplayComponent } from './components/movie-display/movie-display.
     MovieCardComponent,
     HomePageComponent,
     MovieDetailsPageComponent,
-    MovieDisplayComponent,
+    MovieDisplayComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, StoreModule.forRoot({ myData: myDataReducer }),],
   providers: [],
   bootstrap: [AppComponent],
 })

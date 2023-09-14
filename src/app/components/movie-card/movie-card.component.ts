@@ -1,6 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { DataService } from 'src/app/data.service';
+import { selectMyData } from 'src/app/state/selectors/data.selectors';
+
+
+
 
 @Component({
   selector: 'app-movie-card',
@@ -8,6 +13,9 @@ import { DataService } from 'src/app/data.service';
   styleUrls: ['./movie-card.component.scss'],
 })
 export class MovieCardComponent {
+
+  
+
   data: any;
   title: string = '';
   actors: string = '';
@@ -18,10 +26,13 @@ export class MovieCardComponent {
   constructor(
     private dataService: DataService,
     private router: Router,
+    private store: Store
   ) {}
 
+
+
   ngOnInit(): void {
-    this.dataService.data$.subscribe((newData) => {
+    this.store.select(selectMyData).subscribe((newData) => {
       this.data = newData;
       this.title = this.data.Title;
       this.actors = this.data.Actors;
