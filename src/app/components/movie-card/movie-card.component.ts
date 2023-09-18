@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { DataService } from 'src/app/data.service';
+import { DataService } from 'src/app/service/data.service';
 import { selectMyData } from 'src/app/state/selectors/data.selectors';
 
 @Component({
@@ -10,7 +10,7 @@ import { selectMyData } from 'src/app/state/selectors/data.selectors';
   styleUrls: ['./movie-card.component.scss'],
 })
 export class MovieCardComponent {
-  data: any = { Response: 'hi' };
+  data: any = { Response: null };
   title: string = '';
   actors: string = '';
   imdb: string = '';
@@ -24,7 +24,7 @@ export class MovieCardComponent {
   ) {}
 
   ngOnInit(): void {
-    this.store.select(selectMyData).subscribe((newData) => {
+    this.store.select(selectMyData).subscribe((newData) => { 
       this.data = newData;
       this.title = this.data.Title;
       this.actors = this.data.Actors;

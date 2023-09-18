@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Store } from '@ngrx/store';
-import { addData } from './state/actions/data.actions';
+import { addData } from '../state/actions/data.actions';
 
 @Injectable({
   providedIn: 'root',

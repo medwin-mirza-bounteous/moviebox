@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { DataService } from 'src/app/data.service';
+import { DataService } from 'src/app/service/data.service';
 import { addData } from 'src/app/state/actions/data.actions';
 
 @Component({

@@ -3,10 +3,6 @@ import { MovieCardComponent } from './movie-card.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { provideMockStore } from '@ngrx/store/testing';
 
-
-
-
-
 describe('MovieCardComponent', () => {
   let component: MovieCardComponent;
   let fixture: ComponentFixture<MovieCardComponent>;
@@ -15,8 +11,7 @@ describe('MovieCardComponent', () => {
     TestBed.configureTestingModule({
       declarations: [MovieCardComponent],
       imports: [HttpClientTestingModule],
-      providers:[provideMockStore({})
-      ]
+      providers: [provideMockStore({})],
     });
     fixture = TestBed.createComponent(MovieCardComponent);
     component = fixture.componentInstance;
@@ -27,42 +22,48 @@ describe('MovieCardComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display the movie card when `hasResponse` is true', () => {
-    component.hasResponse = true;
-    component.title = 'Sample Movie';
-    component.actors = 'Actor 1, Actor 2';
-    component.imdb = '7.5';
-    component.posterImage = 'sample-poster.jpg';
+  it('should initialize data and properties correctly when response is true', () => {
+    // Simulate a response from the store.
+    const mockData = {
+      Response: 'True',
+      Title: 'Movie Title',
+      Actors: 'Actor 1, Actor 2',
+      imdbRating: '8.0',
+      Poster: 'poster.jpg',
+    };
 
-    fixture.detectChanges();
+    spyOn(component['store'], 'select').and.returnValue({
+      subscribe: (callback: Function) => callback(mockData),
+    } as any);
 
-    const movieCardElement = fixture.nativeElement;
-    expect(movieCardElement.querySelector('.movie-card')).toBeTruthy();
-    expect(movieCardElement.querySelector('.movie-card-title').textContent).toContain('Sample Movie');
-    expect(movieCardElement.querySelector('.movie-card-description').textContent).toContain('Actor 1, Actor 2');
-    expect(movieCardElement.querySelector('.movie-card-rating').textContent).toContain('7.5');
+    component.ngOnInit();
+
+    expect(component.data).toEqual(mockData);
+    expect(component.title).toEqual(mockData.Title);
+    expect(component.actors).toEqual(mockData.Actors);
+    expect(component.imdb).toEqual(mockData.imdbRating);
+    expect(component.posterImage).toEqual(mockData.Poster);
+    expect(component.hasResponse).toBeTrue();
   });
 
+  it('should initialize data and properties correctly when reponse is false', () => {
+    const mockData = {
+      Response: 'False'
+    };
 
-  it('should display the "No movies found" card when `hasResponse` is false and `data.Response` is "False"', () => {
-    component.hasResponse = false;
-    component.data = { Response: 'False' };
+    spyOn(component['store'], 'select').and.returnValue({
+      subscribe: (callback: Function) => callback(mockData),
+    } as any);
 
-    fixture.detectChanges();
+    component.ngOnInit();
 
-    const errorCardElement = fixture.nativeElement;
-    expect(errorCardElement.querySelector('.error-card')).toBeTruthy();
-    expect(errorCardElement.querySelector('.error-card-info').textContent).toContain('No movies found');
+    expect(component.data).toEqual(mockData);
+    expect(component.hasResponse).toBeFalse();
   });
 
-  it('should call `redirectToAnotherPage` when the movie card is clicked', () => {
-    spyOn(component, 'redirectToAnotherPage');
-    component.hasResponse = true;
-    fixture.detectChanges();
-
-    const movieCardElement = fixture.nativeElement.querySelector('.movie-card');
-    movieCardElement.click();
-
-    expect(component.redirectToAnotherPage).toHaveBeenCalled();
+  it('should navigate to another page', () => {
+    const routerSpy = spyOn(component['router'], 'navigate');
+    component.redirectToAnotherPage();
+    expect(routerSpy).toHaveBeenCalledWith(['/movie']);
   });
 });

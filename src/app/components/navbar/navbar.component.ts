@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { DataService } from 'src/app/data.service';
+import { DataService } from 'src/app/service/data.service';
 import { selectMyData } from 'src/app/state/selectors/data.selectors';
 
 @Component({
