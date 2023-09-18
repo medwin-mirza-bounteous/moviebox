@@ -10,9 +10,8 @@ describe('MovieDisplayComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [MovieDisplayComponent],
-      imports:[HttpClientTestingModule],
-      providers:[provideMockStore({})]
-      
+      imports: [HttpClientTestingModule],
+      providers: [provideMockStore({})],
     });
     fixture = TestBed.createComponent(MovieDisplayComponent);
     component = fixture.componentInstance;
@@ -31,15 +30,14 @@ describe('MovieDisplayComponent', () => {
       Actors: 'Actor 1, Actor 2',
       imdbRating: '8.0',
       Poster: 'poster.jpg',
-      Released:'2009',
+      Released: '2009',
       Plot: 'Thriller',
-      Director:'James Cameron',
+      Director: 'James Cameron',
       BoxOffice: '5 million $USD',
       Language: 'English',
       imdbVotes: '10000',
       Genre: 'mystery',
-      Runtime: '200 minutes'
-  
+      Runtime: '200 minutes',
     };
 
     spyOn(component['store'], 'select').and.returnValue({
@@ -61,6 +59,5 @@ describe('MovieDisplayComponent', () => {
     expect(component.language).toEqual(mockData.Language);
     expect(component.imdbVotes).toEqual(mockData.imdbVotes);
     expect(component.genre).toEqual(mockData.Genre);
-    
   });
 });
